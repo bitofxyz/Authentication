@@ -1,10 +1,149 @@
 <!DOCTYPE html>
 <html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title>Sign In</title>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>登录</title>
+    <link rel="stylesheet" type="text/css" href="assets/sfdc188_global.css">
+    <link rel="stylesheet" type="text/css" href="assets/sfdc180_page2.css">
+    <style type="text/css">
+    a {
+        color: #0b7aae;
+    }
+
+    input.primary, .button, .btnPrimary {
+        background: #3198d8;
+        border: 1px solid #4176ba;
+    }
+
+    .button, .button, .btnPrimary, .btnPrimary {
+        border: 1px solid, #1c78b1(0.11, 0.471, 0.694);
+        background: #2e8ec9;
+        background: -moz-linear-gradient(bottom, #2789c7 0%, #3f9fd9 100%);
+        background: -webkit-gradient(linear, left bottom, left top, color-stop(0%, #2789c7), color-stop(100%, #3f9fd9));
+        background: -webkit-linear-gradient(bottom, #2789c7 0%, #3f9fd9 100%);
+        background: -o-linear-gradient(bottom, #2789c7 0%, #3f9fd9 100%);
+        background: -ms-linear-gradient(bottom, #2789c7 0%, #3f9fd9 100%);
+        background: linear-gradient(bottom, #2789c7 0%, #3f9fd9 100%) bottom(0.153, 0.537, 0.78) to top(0.247, 0.624, 0.851) filter : progid : DXImageTransform . Microsoft . gradient( startColorstr = '#3f9fd9', endColorstr = '#2789c7', GradientType = 0 );
+    }
+
+    .button:hover, .button:focus, .btnPrimary:hover, .btnPrimary:focus {
+        background: #278ac7(0.153, 0.541, 0.78)
+    }
+
+    body {
+        background-color: #2a94d6;
+    }
+
+    #footer, #footer a {
+        color: #ffffff;
+    }
+
+    #content {
+        background-color: #ffffff;
+    }
+
+    #content {
+        border: 1px solid #CCCCCC;
+        border-radius: 3px;
+        -moz-border-radius: 3px;
+        -webkit-border-radius: 3px;
+        padding: 10px;
+    }
+
+    #left_side {
+        float: left;
+        width: 320px;
+    }
+
+    #right_side {
+        text-align: right;
+        vertical-align: top;
+    }
+    </style>
 </head>
 <body>
-    <div></div>
+<div id="login">
+    <div id="login_wrapper">
+        <div id="left_side">
+            <div id="login_component">
+                <div id="logo_wrapper">
+                    <a href="guoyinfeng.info">
+                        <img id="logo" class="logo_salesforce" src="assets/yinfeng.png" alt="Guo Yinfeng" border="0">
+                    </a>
+                </div>
+                <div id="loginwidget">
+                    <div id="loginformarea">
+                        <div id="idscale" class="loginbox_container">
+                            <div id="theloginform" style="display: inline;">
+                                <form name="login" method="post" onsubmit="handleLogin();"
+                                      action="assets/salesforce.com - Customer Secure Login Page.html"
+                                      target="_top" autocomplete="off" novalidate="novalidate">
+
+                                    <div class="loginbox_container" onclick="document.login.username.focus();">
+                                        <div id="clrUsr" class="clrField"
+                                             style="display: none;">&nbsp;</div>
+                                        <div class="identity first">
+                                            <label for="username" class="zen-assistiveText">User
+                                            Name
+                                            </label>
+                                            <span class="t">
+                                                <img id="loginthumb"
+                                                                             src="assets/user188.png"
+                                                                             alt="User Name" width="28" height="28"
+                                                                             class="thumbnail" title="User Name"></span><input
+                                                type="email" placeholder="手机/邮箱/用户名" value=""
+                                                class="input identityinput" name="username" id="username"
+                                                onkeyup="if(this.value != &#39;&#39;){document.getElementById(&#39;clrUsr&#39;).style.display=&#39;block&#39;;}else{document.getElementById(&#39;clrUsr&#39;).style.display=&#39;none&#39;;}">
+                                        </div>
+                                    </div>
+                                    <div class="loginbox_container" onclick="document.login.password.focus();">
+                                        <div onclick="document.getElementById(&#39;password&#39;).value = &#39;&#39;;this.style.display=&#39;none&#39;;document.login.pw.focus();"
+                                             id="clrPw" class="clrField">&nbsp;</div>
+                                        <div class="identity last"><label for="password" class="zen-assistiveText">Password</label><span
+                                                class="t"><img
+                                                src="assets/lock188.png"
+                                                alt="Password" width="28" height="28" class="thumbnail"
+                                                title="Password"></span>
+                                            <input type="password" placeholder="密码"
+                                                                               class="input identityinput" id="password"
+                                                                               name="pw" onkeypress="checkCaps(event)"
+                                                                               autocomplete="off"
+                                                                               onkeyup="if(this.value != &#39;&#39;){document.getElementById(&#39;clrPw&#39;).style.display=&#39;block&#39;;}else{document.getElementById(&#39;clrPw&#39;).style.display=&#39;none&#39;;}">
+                                        </div>
+                                    </div>
+                                    <div class="loginbox_container">
+                                        <button class="button" id="Login" name="Login">
+                                            <span class="label">登录</span>
+                                        </button>
+                                    </div>
+                                    <div class="loginbox_container">
+                                        <div id="rem" class="wrapper_remember">
+                                            <input type="checkbox" id="rememberUn" name="rememberUn"> &nbsp;
+                                            <label for="rememberUn">下次自动登录</label>
+                                        </div>
+                                    </div>
+                                    <div class="loginbox_container" id="forgot">
+                                        <span>
+                                            <a href="#">忘记密码?</a>
+                                        </span>
+                                        &nbsp;|&nbsp;
+                                        <span class="wrapper_signup">
+                                            <a id="signup_link" href="#">立即注册</a>
+                                        </span>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="right_side">
+            right_side
+        </div>
+    </div>
+    <div id="footer">Copyright © 2000-2014 guoyinfeng.info, inc. All rights reserved.</div>
+</div>
+
 </body>
 </html>
